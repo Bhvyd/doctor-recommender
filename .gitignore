@@ -1,0 +1,35 @@
+# Python-related
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg
+*.eggs
+dist/
+build/
+*.log
+
+# Virtual environment
+venv/
+.env/
+
+# IDE-related
+.vscode/
+.idea/
+
+# Operating System files
+.DS_Store         # macOS system file
+Thumbs.db          # Windows system file
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Node.js-related
+node_modules/
+
+# Environment files
+.env              # If you're using .env files for environment variables
+
+# Log files
+*.log
