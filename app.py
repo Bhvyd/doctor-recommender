@@ -1,3 +1,4 @@
+import requests
 import streamlit as st
 from disease_mappers import predict_disease, symptoms_list
 from api_handlers import autocomplete_location, get_nearby_doctors
