@@ -10,7 +10,7 @@ def autocomplete_location(query):
     if query in cache:
         return cache[query]
 
-    url = f"https://maps.googleapis.com/maps/api/place/autocomplete/json?input={query}&types=geocode&key={GOOGLE_API_KEY}"
+    url = f"https://maps.googleapis.com/maps/api/place/autocomplete/json?input={query}&types=(regions)&key={GOOGLE_API_KEY}"
     response = requests.get(url)
     data = response.json()
 
@@ -42,4 +42,3 @@ def get_nearby_doctors(latitude, longitude):
     else:
         print("Error:", data.get("status", "Unknown error"))
         return []
-

@@ -1,46 +1,43 @@
-import requests
 import streamlit as st
-from disease_mappers import predict_disease, symptoms_list
+import requests
 from api_handlers import autocomplete_location, get_nearby_doctors
+from disease_mappers import predict_disease,symptoms_list
 
-
-
-# Streamlit UI Setup
 st.title("Doctor Recommender System")
 
-# Symptom Selection
+# Dropdown or checkbox for symptoms
 st.subheader("Select Your Symptoms")
+
 selected_symptoms = st.multiselect("Choose your symptoms", symptoms_list)
 
-# Location Selection
-st.subheader("Select Your Location")
-
-# State, City, Locality Inputs
+# Input for state
 state = st.text_input("Enter State:")
 city = None
 locality = None
 
+# Fetch cities based on state
 if state:
-    cities = autocomplete_location(state)
-    city = st.selectbox("Select City", cities) if cities else None
+    cities = autocomplete_location(state + " India")  # Append country for better results
+    if cities:
+        city = st.selectbox("Select City", cities)
 
+# Fetch localities based on city
 if city:
-    locality_query = f"{city}, {state}"
-    localities = autocomplete_location(locality_query)
-    locality = st.selectbox("Select Locality", localities) if localities else None
+    localities = autocomplete_location(f"{city}, {state}, India")
+    if localities:
+        locality = st.selectbox("Select Locality", localities)
 
-# Disease Prediction and Doctor Recommendation
+# Button to predict disease and find doctors
 if st.button("Predict Disease and Find Doctors"):
     if not selected_symptoms:
         st.warning("Please select at least one symptom.")
     elif not (state and city and locality):
         st.warning("Please provide your full location.")
     else:
-        # Predict disease based on selected symptoms using disease_mappers.py
         predicted_disease = predict_disease(selected_symptoms)
         st.success(f"Predicted Disease: {predicted_disease}")
 
-        # Use the selected location to get coordinates via Geocoding API
+        # Geocoding API to get coordinates
         geocode_url = f"https://maps.googleapis.com/maps/api/geocode/json?address={locality},{city},{state}&key=YOUR_GOOGLE_API_KEY"
         geocode_response = requests.get(geocode_url)
         geocode_data = geocode_response.json()
