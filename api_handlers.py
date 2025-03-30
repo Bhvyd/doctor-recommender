@@ -23,22 +23,23 @@ def autocomplete_location(query):
         print("Error:", data.get("status", "Unknown error"))
         return []
 
-def get_nearby_doctors(latitude, longitude):
-    """Get top 10 doctors near the given coordinates"""
-    url = (f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
-           f"location={latitude},{longitude}&radius=5000&keyword=doctor&key={GOOGLE_API_KEY}")
-    response = requests.get(url)
+def get_nearby_doctors(latitude, longitude, disease):
+    # Google Places API URL for finding doctors nearby
+    places_url = (
+        f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
+        f"location={latitude},{longitude}&radius=5000&keyword={disease}+doctor&key=YOUR_GOOGLE_API_KEY"
+    )
+    
+    response = requests.get(places_url)
     data = response.json()
-
+    
+    doctors = []
     if response.status_code == 200 and data.get("status") == "OK":
-        doctors = []
-        for place in data.get("results", [])[:10]:
+        for result in data.get("results", []):
             doctors.append({
-                "name": place.get("name"),
-                "address": place.get("vicinity"),
-                "rating": place.get("rating", "N/A")
+                "name": result.get("name"),
+                "address": result.get("vicinity"),
+                "rating": result.get("rating", "N/A"),
+                "specialization": disease  # Assuming the disease name as specialization
             })
-        return doctors
-    else:
-        print("Error:", data.get("status", "Unknown error"))
-        return []
+    return doctors

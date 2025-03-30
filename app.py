@@ -109,7 +109,7 @@ if latitude is not None and longitude is not None:
                 # Create a styled card for each doctor
                 st.markdown(
                     f"""
-                    <div style="border: 1px solid #ddd; padding: 10px; border-radius: 8px; margin: 5px 0; background-color: #3c4550;">
+                    <div style="border: 1px solid #11082d; padding: 10px; border-radius: 8px; margin: 5px 0; background-color: #3c4550;">
                         <h4 style="margin: 0;">🩺 {name}</h4>
                         <p style="margin: 0;"><b>Specialization:</b> {specialization}</p>
                         <p style="margin: 0;"><b>Address:</b> {address}</p>
