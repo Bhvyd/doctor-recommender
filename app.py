@@ -82,20 +82,17 @@ if latitude is not None and longitude is not None:
     try:
         # Step 1: Primary search for specialized doctors
         doctors = get_nearby_doctors(latitude, longitude, [specialization])
-        st.write("📝 Doctor API Primary Response:", doctors)  # Debug: print the returned doctor list
 
         # Step 2: Fallback to general terms if no specialized doctors found
         if not doctors:
-            st.warning(f"⚠️ No specialized {specialization} doctors found nearby. Trying a broader search...")
+            st.warning(f"⚠️ No specialized {'  '.join(specialization)} doctors found nearby. Trying a broader search...")
             broader_keywords = ["doctor", "clinic", "hospital", "healthcare"]
             doctors = get_nearby_doctors(latitude, longitude, broader_keywords)
-            st.write("📝 Doctor API Fallback Response:", doctors)  # Debug: print the returned doctor list
 
         # Step 3: Final fallback to very general search if still empty
         if not doctors:
             st.warning("⚠️ No healthcare facilities found with specific keywords. Trying with just 'hospital'.")
             doctors = get_nearby_doctors(latitude, longitude, ["hospital"])
-            st.write("📝 Doctor API Final Fallback Response:", doctors)  # Debug: print the returned doctor list
 
         # Step 4: Display results after all attempts
         if doctors:
@@ -106,21 +103,30 @@ if latitude is not None and longitude is not None:
                 rating = doctor.get("rating", "N/A")
                
 
-                # Create a styled card for each doctor
                 st.markdown(
-                    f"""
-                    <div style="border: 1px solid #11082d; padding: 10px; border-radius: 8px; margin: 5px 0; background-color: #3c4550;">
-                        <h4 style="margin: 0;">🩺 {name}</h4>
-                        <p style="margin: 0;"><b>Specialization:</b> {specialization}</p>
-                        <p style="margin: 0;"><b>Address:</b> {address}</p>
-                        <p style="margin: 0;"><b>Rating:</b> {rating}</p>
-                    </div>
+                   f"""
+                         <div style="border: 2px solid #1a1a1a; padding: 15px; border-radius: 12px; margin: 8px 0; 
+                                background-color: #1f2430; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);">
+                            <h4 style="color: #64ffda; margin: 10px 0;"> {name} 🩺</h4>
+                            <p style="margin: 5px 0; font-size: 16px; color: #ffffff;"><b>Specialization:</b> {'  '.join(specialization)}</p>
+                            <p style="margin: 5px 0; font-size: 15px; color: #ffffff;"><b>Address:</b> {address}</p>
+                            <p style="margin: 5px 0; font-size: 15px; color: #ffffff;"><b>Rating ⭐:</b>  {rating}</p>
+                            <p style="margin: 5px 0; font-size: 15px; color: #ffffff;">
+                                 <b>Location 🌍 :</b>
+                                  <a href="https://www.google.com/maps/search/?api=1&query={address}" target="_blank" 
+                                   style="color: #a855f7; text-decoration: none;">
+                                   View on Google Maps
+                                  </a>
+                          </p>
+                     </div>
                     """,
-                    unsafe_allow_html=True
-                )
+    unsafe_allow_html=True
+)
+
+
         else:
             st.warning("⚠️ No doctors or healthcare facilities found nearby, even after fallback attempts.")
     except Exception as e:
         st.error(f"❌ Error while fetching nearby doctors: {e}")
 else:
-    st.error("❌ Unable to fetch coordinates for the given location.")
+    st.error("❌ Unable to fetch coordinates for the given location.")  
