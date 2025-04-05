@@ -1,2 +1,7 @@
 python-dotenv
 joblib
+streamlit
+pickle-mixin 
+scikit-learn
+numpy
+pandas
