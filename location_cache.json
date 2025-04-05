@@ -18,5 +18,64 @@
         "Malviya Nagar, Jaipur, Rajasthan, India",
         "Malviya Nagar, Nandpuri Colony, Jagatpura, Jaipur, Rajasthan, India",
         "Malviya Nagar, Chandrakala Colony, Mata colony, Jaipur, Rajasthan, India"
+    ],
+    "malviya nagar , India": [
+        "Malviya Nagar, New Delhi, Delhi, India",
+        "Malviya Nagar, Jaipur, Rajasthan, India",
+        "Malviya Nagar, Indore, Madhya Pradesh, India",
+        "Malviya Nagar, Bhopal, Madhya Pradesh, India",
+        "Malviya Nagar, Alwar, Rajasthan, India"
+    ],
+    "malviya nagar jaipur \\, India": [
+        "Malviya Nagar, Jaipur, Rajasthan, India",
+        "Malviya Nagar, Nandpuri Colony, Jagatpura, Jaipur, Rajasthan, India",
+        "Malviya Nagar, Chandrakala Colony, Mata colony, Jaipur, Rajasthan, India"
+    ],
+    "malviya nagar, India": [
+        "Malviya Nagar, New Delhi, Delhi, India",
+        "Malviya Nagar, Jaipur, Rajasthan, India",
+        "Malviya Nagar, Indore, Madhya Pradesh, India",
+        "Malviya Nagar, Bhopal, Madhya Pradesh, India",
+        "Malviya Nagar, Alwar, Rajasthan, India"
+    ],
+    "malviya , India": [
+        "Malviya Nagar, New Delhi, Delhi, India",
+        "Malviya Nagar, Jaipur, Rajasthan, India"
+    ],
+    "malviya naga, India": [
+        "Malviya Nagar, New Delhi, Delhi, India",
+        "Malviya Nagar, Jaipur, Rajasthan, India",
+        "Malviya Nagar, Indore, Madhya Pradesh, India",
+        "Malviya Nagar, Bhopal, Madhya Pradesh, India",
+        "Malviya Nagar, Alwar, Rajasthan, India"
+    ],
+    "malviya nagar jaipur, India": [
+        "Malviya Nagar, Jaipur, Rajasthan, India",
+        "Malviya Nagar, Nandpuri Colony, Jagatpura, Jaipur, Rajasthan, India",
+        "Malviya Nagar, Chandrakala Colony, Mata colony, Jaipur, Rajasthan, India"
+    ],
+    "Delhi, India": [
+        "Delhi, India",
+        "India Gate, New Delhi, Delhi, India",
+        "New Delhi, Delhi, India",
+        "Delphi, IN, USA",
+        "Delhi, Madhya Pradesh, India"
+    ],
+    "KR-78, Civil Lines, Nayapura, Kota, Rajasthan, India": [
+        "Civil Lines, Nayapura, Kota, Rajasthan, India"
+    ],
+    "kota, India": [
+        "Kota, Rajasthan, India",
+        "Kota, Chhattisgarh, India",
+        "Kota, Andhra Pradesh, India",
+        "Kota, Raipur, Chhattisgarh, India",
+        "Kota, Karnataka, India"
+    ],
+    "nayapuara , India": [
+        "Nayapura, Kota, Rajasthan, India",
+        "Nayapura, Rajasthan, India",
+        "Nayapura, Indore, Madhya Pradesh, India",
+        "Nayapura, Jodhpur, Rajasthan, India",
+        "Nayapura, Madhya Pradesh, India"
     ]
 }
