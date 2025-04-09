@@ -6,7 +6,7 @@ from disease_mappers import predict_disease, symptoms_list
 from doctor_mappers import disease_specialization_map
 
 # Streamlit App Title and Configuration
-st.set_page_config(page_title="Doctor Recommender System", page_icon="🏥", layout="centered")
+st.set_page_config(page_title="DocFinder", page_icon="🏥", layout="centered")
 st.title("🏥 Doctor Recommender System")
 st.markdown("Find the best doctors near you based on your symptoms.")
 
