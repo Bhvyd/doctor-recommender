@@ -7,7 +7,7 @@ from doctor_mappers import disease_specialization_map
 
 # Streamlit App Title and Configuration
 st.set_page_config(page_title="DocFinder", page_icon="🏥", layout="centered")
-st.title("🏥 Doctor Recommender System")
+st.title("🏥 DocFinder")
 st.markdown("Find the best doctors near you based on your symptoms.")
 
 # Add a custom CSS for styling and centering elements
